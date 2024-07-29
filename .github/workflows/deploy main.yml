@@ -43,7 +43,9 @@ jobs:
           python3 -m pip install --upgrade pip
           npm install -g aws-cdk
           pip3 install -r requirements.txt
-  
+      - name: Bootstrap CDK
+        run: |
+          cdk bootstrap aws://${{ secrets.AWS_ACCOUNT_ID }}/${{ env.AWS_REGION }}
       - name: CDK Deploy
         run: |
           cdk deploy --app-path "app.py" --require-approval never
