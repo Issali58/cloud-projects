@@ -52,4 +52,7 @@ jobs:
       - name: CDK Destroy
         run: |
           cdk destroy --app-path "app.py" --force
+      - name: Destroy CDK Toolkit stack
+          run: |
+            aws cloudformation delete-stack --stack-name CDKToolkit
 
