@@ -65,7 +65,7 @@ class CloudApIresumeChallengeStack(Stack):
           table_name = props['dynamoDBnames'],
           attribute_definitions = [
             {
-              'attributeName': 'email',
+              'attributeName': 'id',
               'attributeType': 'S',
             },
             {
@@ -83,13 +83,13 @@ class CloudApIresumeChallengeStack(Stack):
           ],
           key_schema = [
             {
-              'attributeName': 'email',
+              'attributeName': 'id',
               'keyType': 'HASH',
             },
-            {
-              'attributeName': 'phone',
-              'keyType': 'RANGE',
-            },
+            # {
+            #   'attributeName': 'phone',
+            #   'keyType': 'RANGE',
+            # },
           ],
           provisioned_throughput = {
             'readCapacityUnits': 5,
