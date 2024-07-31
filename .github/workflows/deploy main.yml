@@ -49,9 +49,9 @@ jobs:
       - name: CDK Deploy
         run: |
           cdk deploy --app-path "app.py" --require-approval never
-      - name: CDK Destroy
-        run: |
-          cdk destroy --app-path "app.py" --force
+      # - name: CDK Destroy
+        # run: |
+          # cdk destroy --app-path "app.py" --force
       - name: Destroy CDK Toolkit stack
         run: |
           aws cloudformation delete-stack --stack-name CDKToolkit
