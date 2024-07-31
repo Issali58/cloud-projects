@@ -1,9 +1,21 @@
 
-# Welcome to your CDK Python project!
+# Cloud Resume API Challenge
 
-This is a blank project for CDK development with Python.
+This is a project that deploys an AWS serverless API in conjunction with AWS lambda and Dynamo DB.this project was deployed with CICD pipeline using github actions and AWS CDK. the AWS CDK framework was written using Python.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Architectural diagram
+![project diagram](https://github.com/user-attachments/assets/9e94815c-42e0-4e54-b3fb-4941585be00e)
+
+Prequistes
+for the project creation to work seamlessly, ensure you have the following installed
+1. NodeJS. this needs to be installed to allow the use of the AWS CDK framework.
+2. AWS CDK. This is used when deploying the project resources to the AWS cloud.
+3. Python 3.9
+4. Pip
+
+Infrastructure resources.
+1. Lambda function. this is invoked from the API request which then retrieves JSON resume data from the Dynamo database.
+2. API Gateway. it is provides the API, which is used to route HTTP requests to lambda for invocation, 
 
 This project is set up like a standard Python project.  The initialization
 process also creates a virtualenv within this project, stored under the `.venv`
@@ -12,20 +24,7 @@ directory.  To create the virtualenv it assumes that there is a `python3`
 package. If for any reason the automatic creation of the virtualenv fails,
 you can create the virtualenv manually.
 
-To manually create a virtualenv on MacOS and Linux:
 
-```
-$ python -m venv .venv
-```
-
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
-
-```
-$ source .venv/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
 
 ```
 % .venv\Scripts\activate.bat
@@ -55,4 +54,3 @@ command.
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
 
-Enjoy!
