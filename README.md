@@ -130,7 +130,8 @@ jobs:
         run: |
           aws cloudformation delete-stack --stack-name CDKToolkit
 ```
-when the workflow file is updated, it runs which will lead to deployment of the CDK application consisting of the AWS resources. 
+when the workflow file is updated, it runs which will lead to deployment of the CDK application consisting of the AWS resources. you can verify the deployment by checking the actions tab where you will see a green tick on the workflow file run.
+![image](https://github.com/user-attachments/assets/f72881d9-91a1-4760-b655-84254841bedc)
 
 ### Input the JSON data in the database
 with the dynamoDB resource created, create an item with a partition key defined from the infrastructure as code. insert the json schema with your data in the "JSON view" of the attrubute creation.
