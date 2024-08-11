@@ -68,6 +68,9 @@ git commit =m "deployment message"
 
 ## Github actions workflow
 this is feature that enables your project have a CI/CD pipeline. You create a .yaml file in the action tab in your github account. The file is configured to run the deployment when the requests are made to your main branch or one of your choosing.
+TO run this workflow file you have to define the AWS_ACCESS_KEY, AWS_ACCESS_KEY_ID, AWS_ACCOUNT_ID and AWS_REGION variable secrets in variables section in the settings tab. these variable allow the workflow to be deployed in a specific region, account and users. make sure you create a new IAM user that uses access keys and allow to be accessed using AWS CLI.
+![github secrets](https://github.com/user-attachments/assets/b5aa94ad-a05f-4df7-bab6-a1be4650b622)
+then the workflow file is created as shown below
 ```
 # This is a basic workflow to help you get started with Actions
 
@@ -127,7 +130,8 @@ jobs:
         run: |
           aws cloudformation delete-stack --stack-name CDKToolkit
 ```
-when the workflow file is updated, it runs which will lead to deployment of the CDK application consisting of the AWS resources. the AWS_ACCESS_KEY, AWS_ACCESS_KEY_ID, AWS_ACCOUNT_ID and AWS_REGION variables are defined in the secrets an variables section in the settings tab. these variable allow the workflow to be deployed in a specific region, account and users. make sure you create a new IAM user that uses access keys and allow to be accessed using AWS CLI.
+when the workflow file is updated, it runs which will lead to deployment of the CDK application consisting of the AWS resources. 
+
 ### Input the JSON data in the database
 with the dynamoDB resource created, create an item with a partition key defined from the infrastructure as code. insert the json schema with your data in the "JSON view" of the attrubute creation.
 ![dynamodb insert](https://github.com/user-attachments/assets/b2c5e54d-2c9e-4b9d-9387-e991ee28e384)
